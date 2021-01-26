@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row">
+        <!-- Filters Start -->
+        <section class="col-3">
+            
+            <!-- Sidebar filter section -->
+            <section id="sidebar">
+                
+                <div class="border-bottom pb-2 ml-2">
+                    <h3 id="burgundy">Filters</h3>
+                </div>
+                <div class="py-2 border-bottom ml-3">
+                    <h6 class="font-weight-bold">Sort</h6>
+                    <div id="orange"><span class="fa fa-minus"></span></div>
+                        <div class="form-group">
+                            <select class="custom-select mb-4" (change)="onSortSelected($any($event.target).value)">
+                                <option *ngFor="let sort of sortOptions" 
+                                    [selected]="shopParams.sort === sort.value"
+                                    [value]="sort.value">
+                                    {{sort.name}}
+                                </option>
+                            </select>
+                        </div>
+                </div>
+                <div class="py-2 border-bottom ml-3">
+                    <h6 class="font-weight-bold">Brands</h6>
+                    <div id="orange"><span class="fa fa-minus"></span></div>
+                    <ul class="list-group my-3">
+                        <li class="list-group-item" *ngFor="let brand of brands"
+                            [class.active]="brand.id === this.shopParams?.brandId" [value]="brand.id"
+                            (click)="onBrandSelected(brand.id)">
+                            {{brand.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="py-2 border-bottom ml-3">
+                    <h6 class="font-weight-bold">Types</h6>
+                    <div id="orange"><span class="fa fa-minus"></span></div>
+                    <ul class="list-group my-3">
+                        <li class="list-group-item" *ngFor="let type of types" [class.active]="type.id === this.shopParams?.typeId"
+                            [value]="type.id" (click)="onTypeSelected(type.id)">
+                            {{type.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="py-2 ml-3">
+                    <h6 class="font-weight-bold">Top Offers</h6>
+                    <div id="orange"><span class="fa fa-minus"></span></div>
+                    <form>
+                        <div class="form-group"> <input type="checkbox" id="25off"> <label for="25">25% off</label> </div>
+                        <div class="form-group"> <input type="checkbox" id="5off"> <label for="5off" id="off">5% off on artisan breads</label> </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+        <!-- Filters End -->
+        <!-- shop-page content start-->
+        <section class="col-3">
+            <div class="container">
+                <div class="row">
+                    <app-paging-header
+                    [totalCount]="totalCount"
+                    [pageSize]="this.shopParams.pageSize"
+                    [pageNumber]="this.shopParams.pageNumber"
+                    ></app-paging-header>
+                    <div class="form-inline" *ngIf="products">
+                        <input (keyup.enter)="onSearch()" class="form-control mr-2" #search style="width: 300px" placeholder="Search" type="text">
+                        <button (click)="onSearch()"  class="btn btn-outline-primary my-2">Search</button>
+                        <button (click)="onReset()" class="btn btn-outline-success ml-2 my-2">Reset</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3" *ngFor="let item of products">
+                        <app-product-item [product]="item"></app-product-item>
+                    </div>
+                </div>
+                <app-pager
+                [pageSize]="this.shopParams.pageSize"
+                [totalCount]="this.totalCount"
+                (pageChanged)="onPageChanged($event)"
+                ></app-pager>
+            </div>
+        </section>
+    </div>
+</div>
