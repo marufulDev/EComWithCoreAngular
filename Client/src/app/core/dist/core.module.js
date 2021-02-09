@@ -6,30 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.ShopModule = void 0;
+exports.CoreModule = void 0;
 var router_1 = require("@angular/router");
-var shared_module_1 = require("./../shared/shared.module");
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var shop_component_1 = require("./shop.component");
-var product_item_component_1 = require("./product-item/product-item.component");
-var product_detail_component_1 = require("./product-detail/product-detail.component");
-var ShopModule = /** @class */ (function () {
-    function ShopModule() {
+var nav_bar_component_1 = require("./nav-bar/nav-bar.component");
+var CoreModule = /** @class */ (function () {
+    function CoreModule() {
     }
-    ShopModule = __decorate([
+    CoreModule = __decorate([
         core_1.NgModule({
-            declarations: [shop_component_1.ShopComponent, product_item_component_1.ProductItemComponent, product_detail_component_1.ProductDetailComponent],
+            declarations: [nav_bar_component_1.NavBarComponent],
             imports: [
                 common_1.CommonModule,
-                shared_module_1.SharedModule,
                 router_1.RouterModule
             ],
-            exports: [
-                shop_component_1.ShopComponent,
-            ]
+            exports: [nav_bar_component_1.NavBarComponent]
         })
-    ], ShopModule);
-    return ShopModule;
+    ], CoreModule);
+    return CoreModule;
 }());
-exports.ShopModule = ShopModule;
+exports.CoreModule = CoreModule;

@@ -34,6 +34,9 @@ var ShopService = /** @class */ (function () {
             return response.body;
         }));
     };
+    ShopService.prototype.getProduct = function (id) {
+        return this.http.get(this.baseUrl + 'products/' + id);
+    };
     ShopService.prototype.getBrands = function () {
         return this.http.get(this.baseUrl + 'products/brands');
     };
