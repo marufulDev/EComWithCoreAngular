@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.ShopModule = void 0;
-var router_1 = require("@angular/router");
+var shop_routing_module_1 = require("./shop-routing.module");
 var shared_module_1 = require("./../shared/shared.module");
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
@@ -23,10 +23,7 @@ var ShopModule = /** @class */ (function () {
             imports: [
                 common_1.CommonModule,
                 shared_module_1.SharedModule,
-                router_1.RouterModule
-            ],
-            exports: [
-                shop_component_1.ShopComponent,
+                shop_routing_module_1.ShopRoutingModule
             ]
         })
     ], ShopModule);

@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.AppModule = void 0;
 var home_module_1 = require("./home/home.module");
-var shop_module_1 = require("./shop/shop.module");
 var core_module_1 = require("./core/core.module");
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
@@ -30,7 +29,6 @@ var AppModule = /** @class */ (function () {
                 animations_1.BrowserAnimationsModule,
                 http_1.HttpClientModule,
                 core_module_1.CoreModule,
-                shop_module_1.ShopModule,
                 home_module_1.HomeModule
             ],
             providers: [],

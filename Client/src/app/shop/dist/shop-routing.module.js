@@ -6,24 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AppRoutingModule = void 0;
-var home_component_1 = require("./home/home.component");
-var core_1 = require("@angular/core");
+exports.ShopRoutingModule = void 0;
 var router_1 = require("@angular/router");
+var core_1 = require("@angular/core");
+var shop_component_1 = require("./shop.component");
+var product_detail_component_1 = require("./product-detail/product-detail.component");
 var routes = [
-    { path: '', component: home_component_1.HomeComponent },
-    { path: 'shop', loadChildren: function () { return Promise.resolve().then(function () { return require('./shop/shop.module'); }).then(function (mod) { return mod.ShopModule; }); } },
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+    { path: '', component: shop_component_1.ShopComponent },
+    { path: 'shop/:id', component: product_detail_component_1.ProductDetailComponent }
 ];
-var AppRoutingModule = /** @class */ (function () {
-    function AppRoutingModule() {
+var ShopRoutingModule = /** @class */ (function () {
+    function ShopRoutingModule() {
     }
-    AppRoutingModule = __decorate([
+    ShopRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(routes)],
+            declarations: [],
+            imports: [
+                router_1.RouterModule.forChild(routes)
+            ],
             exports: [router_1.RouterModule]
         })
-    ], AppRoutingModule);
-    return AppRoutingModule;
+    ], ShopRoutingModule);
+    return ShopRoutingModule;
 }());
-exports.AppRoutingModule = AppRoutingModule;
+exports.ShopRoutingModule = ShopRoutingModule;
